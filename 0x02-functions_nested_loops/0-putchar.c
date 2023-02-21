@@ -4,8 +4,7 @@
 * is written by musty
 * Return: 0
 */
-
-int main(void)
+int main(void);
 {
 _putchar('-');
 _putchar('p');
