@@ -28,5 +28,5 @@ char *rot13(char *n)
 		}
 		k++;
 	}
-	return (n);
+	return (0);
 }
