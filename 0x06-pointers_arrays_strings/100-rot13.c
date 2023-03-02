@@ -1,32 +1,30 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * rot13 - a functonn that encodes a string using rot 13
- * ONE if, TWO loops only...
- * @n: input
- * Return: decrypted string
+ * rot13 - a function that encodes string using  rot13
+ * @s: pointer to string params
+ *
+ * Return: *s
  */
-char *rot13(char *n)
-{
-	int y, rot_c = 13, k = 0;
-	char toswap[] = {'A', 'N', 'a', 'n', 'B', 'O', 'b', 'o', 'C', 'P',
-		'c', 'p', 'D', 'Q', 'd', 'q', 'E', 'R', 'e', 'r', 'F', 'S', 'f',
-		's', 'G', 'T', 'g', 't', 'H', 'U', 'h', 'u', 'I', 'V', 'i', 'v',
-		'J', 'W', 'j', 'w', 'K', 'X', 'k', 'x', 'L', 'Y', 'l', 'y', 'M',
-		'Z', 'm', 'z'};
 
-	while (n[k] != '\0')
+char *rot13(char *s)
+{
+	int j;
+	int k;
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (j = 0; s[j] != '\0'; j++)
 	{
-		for (y = 0; y <= 51; y++)
+		for (k = 0; k < 52; k++)
 		{
-			if (n[k] == toswap[y])
+			if (s[j] == data1[k])
 			{
-				n[k] = n[k] + rot_c;
-				y = 51;
+				s[j] = datarot[k];
+				break;
 			}
-			rot_c = rot_c * -1;
 		}
-		k++;
 	}
-	return (n);
+	return (s);
 }
