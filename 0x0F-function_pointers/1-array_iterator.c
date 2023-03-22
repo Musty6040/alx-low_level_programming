@@ -2,14 +2,21 @@
 #include <stdio.h>
 #include "function_pointers.h"
 /**
- * print_name - f points to either func in main
- * @name: name
- * @f: pointer to print upp or non upp func
+ * array_iterator - prints each array elem on a newl
+ * @array: array
+ * @size: how many elem to print
+ * @action: pointer to print in regular or hex
  * Return: void
  */
-void print_name(char *name, void (*f)(char *))
+void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	if (name == NULL || f == NULL)
+	unsigned int i;
+
+	if (array == NULL)
 		return;
-	f(name);
+	if (action == NULL)
+		return;
+
+	for (i = 0; i < size; i++)
+		action(array[i]);
 }
