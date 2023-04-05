@@ -8,21 +8,17 @@
 */
 int pop_listint(listint_t **head)
 {
-listint_t *snode = *head;
+listint_t *snode;
 int item;
-if (head == NULL)
-{
-item = 0;
-}
-else
-{
-if (*head != NULL)
-{
-*head = snode->next;
-item = snode->n;
-free(snode);
-}
-}
+
+if (!head || !*head)
+return (0);
+
+item = (*head)->n;
+snode = (*head)->next;
+free(*head);
+*head = snode;
+
 return (item);
 }
 
