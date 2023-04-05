@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * print_listint - prints all the elements of a list.
  * @h: head of a list.
@@ -8,9 +7,7 @@
  */
 size_t print_listint(const listint_t *h)
 {
-
 size_t item = 0;
-
 while (h != NULL)
 {
 printf("%d", h->n);
