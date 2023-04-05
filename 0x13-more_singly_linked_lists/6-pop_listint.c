@@ -22,6 +22,7 @@ if (*head != NULL)
 *head = snode->next;
 item = snode->n;
 free(snode);
+*head = snode;
 }
 }
 return (item);
