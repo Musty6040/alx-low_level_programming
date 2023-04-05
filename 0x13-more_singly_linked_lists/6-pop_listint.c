@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
 * pop_listint - to deletes the head of a node in a linked list
 * @head: pointer that points the first member in the linked list
@@ -22,7 +21,6 @@ if (*head != NULL)
 *head = snode->next;
 item = snode->n;
 free(snode);
-*head = snode;
 }
 }
 return (item);
