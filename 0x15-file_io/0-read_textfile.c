@@ -15,8 +15,6 @@ ssize_t fd;
 ssize_t x;
 ssize_t y;
 char *buffer;
-if (filename == NULL)
-return (0);
 fd = open(filename, O_RDONLY);
 if (fd == -1)
 return (-1);
