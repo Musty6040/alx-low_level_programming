@@ -14,16 +14,15 @@ ssize_t fd;
 ssize_t x;
 ssize_t y;
 char *buffer;
-fd = open(filename, O_RDONLY);
-if (fd == -1)
-{
-return (-1);
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	buffer = malloc(sizeof(char) * letters);
+	x = read(fd, buffer, letters);
+	y = write(STDOUT_FILENO, buffer, x);
+
+	free(buffer);
+	close(fd);
+	return (y);
 }
-buffer = malloc(sizeof(char) * letters);
-x = read(fd, buffer, letters);
-y = write(STDOUT_FILENO, buffer, x);
-close(fd);
-free(buffer);
-return (y);
-return (0);
-}
+
